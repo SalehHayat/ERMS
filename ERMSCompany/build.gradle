@@ -2,14 +2,15 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
-    namespace 'com.kust.erms'
+    namespace 'com.kust.erms_company'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.kust.erms"
+        applicationId "com.kust.erms_company"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -68,4 +69,7 @@ dependencies {
 
     // Material 3 Design
     implementation 'com.google.android.material:material:1.9.0-alpha01'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:31.2.0')
 }
