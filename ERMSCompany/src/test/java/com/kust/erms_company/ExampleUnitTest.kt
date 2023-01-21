@@ -1,4 +1,4 @@
-package com.kust.erms
+package com.kust.erms_company
 
 import org.junit.Test
 

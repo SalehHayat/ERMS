@@ -1,4 +1,4 @@
-package com.kust.erms
+package com.kust.erms_company
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
