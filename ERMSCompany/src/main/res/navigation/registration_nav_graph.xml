@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registration_nav_graph"
+    app:startDestination="@id/companyLoginFragment">
+
+    <fragment
+        android:id="@+id/companyLoginFragment"
+        android:name="com.kust.erms_company.ui.CompanyLoginFragment"
+        android:label="fragment_company_login"
+        tools:layout="@layout/fragment_company_login" >
+        <action
+            android:id="@+id/action_companyLoginFragment_to_companyRegistrationFragment"
+            app:destination="@id/companyRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/companyRegistrationFragment"
+        android:name="com.kust.erms_company.ui.CompanyRegistrationFragment"
+        android:label="fragment_company_registration"
+        tools:layout="@layout/fragment_company_registration" />
+</navigation>

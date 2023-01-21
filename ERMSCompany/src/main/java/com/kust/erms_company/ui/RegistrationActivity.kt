@@ -1,8 +1,11 @@
-package com.kust.erms_company
+package com.kust.erms_company.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.kust.erms_company.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

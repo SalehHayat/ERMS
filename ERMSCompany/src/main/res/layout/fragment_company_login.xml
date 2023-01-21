@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CompanyLoginFragment">
+    tools:context=".ui.CompanyLoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,16 +17,16 @@
             android:scaleType="fitStart"
             android:src="@drawable/wave"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/wave_image" />
 
         <TextView
             android:id="@+id/text_view_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="Login Your Company"
+            android:text="@string/login_to_your_company"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_thin"
-            android:text="Login Below With Your Credentials"
+            android:text="@string/login_below_with_your_credentials"
             app:layout_constraintEnd_toEndOf="@+id/text_view_heading"
             app:layout_constraintStart_toStartOf="@+id/text_view_heading"
             app:layout_constraintTop_toBottomOf="@+id/text_view_heading" />
@@ -64,7 +64,7 @@
                 android:id="@+id/edit_text_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -89,7 +89,7 @@
                 android:id="@+id/edit_text_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -108,9 +108,10 @@
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:text="Login"
+                android:text="@string/login"
                 android:textAllCaps="true"
                 app:cornerRadius="8dp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -121,6 +122,7 @@
                 android:layout_centerInParent="true"
                 android:indeterminate="true"
                 android:visibility="gone"
+                android:id="@+id/progressBar"
                 app:indicatorColor="@color/white" />
 
         </RelativeLayout>
@@ -128,9 +130,14 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
-            android:text="Register"
+            android:text="@string/register"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            app:cornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

@@ -46,7 +46,23 @@ class AuthRepositoryImpl(
     }
 
     override fun loginCompany(email: String, password: String, result: (UiState<String>) -> Unit) {
-        TODO("Not yet implemented")
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    result(UiState.Success("Login successful"))
+                }
+                else {
+                    try {
+                        throw task.exception ?: java.lang.Exception("Invalid authentication")
+                    } catch (e: FirebaseAuthInvalidUserException) {
+                        result(UiState.Error("User does not exist"))
+                    } catch (e: FirebaseAuthInvalidCredentialsException) {
+                        result(UiState.Error("Invalid email or password"))
+                    } catch (e: Exception) {
+                        result(UiState.Error("Unknown error"))
+                    }
+                }
+            }
     }
 
     override fun forgotPassword(email: String, result: (UiState<String>) -> Unit) {
