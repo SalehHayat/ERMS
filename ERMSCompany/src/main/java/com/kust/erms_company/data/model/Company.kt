@@ -9,5 +9,5 @@ data class Company(
     val email: String = "",
     val phone: String = "",
     val website: String = "",
-    val logo: String = ""
+    var logo: String = ""
 )

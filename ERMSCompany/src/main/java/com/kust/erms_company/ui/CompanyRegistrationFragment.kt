@@ -1,26 +1,42 @@
 package com.kust.erms_company.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.StorageReference
 import com.kust.erms_company.R
 import com.kust.erms_company.data.model.Company
 import com.kust.erms_company.databinding.FragmentCompanyRegistrationBinding
+import com.kust.erms_company.util.FirebaseStorageConstants
 import com.kust.erms_company.util.UiState
 import com.kust.erms_company.util.toast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.*
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class CompanyRegistrationFragment : Fragment() {
 
+    @Inject
+    lateinit var storageReference: StorageReference
+
+    @Inject
+    lateinit var auth : FirebaseAuth
+
     private var _binding: FragmentCompanyRegistrationBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: AuthViewModel by viewModels()
+
+    private lateinit var imageUri: Uri
+    private lateinit var uploadedImageUri : Uri
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +59,10 @@ class CompanyRegistrationFragment : Fragment() {
                 val company = getCompanyObj()
                 viewModel.register(email, password, company)
             }
+        }
+
+        binding.companyLogo.setOnClickListener {
+                uploadImage()
         }
     }
 
@@ -67,7 +87,7 @@ class CompanyRegistrationFragment : Fragment() {
         }
     }
 
-    private fun getCompanyObj () : Company {
+    private fun getCompanyObj(): Company {
         return Company(
             id = "",
             name = binding.editTextCompanyName.text.toString(),
@@ -77,11 +97,11 @@ class CompanyRegistrationFragment : Fragment() {
             email = binding.editTextEmail.text.toString(),
             phone = binding.editTextPhone.text.toString(),
             website = "www.erms.com",
-            logo = ""
+            logo = uploadedImageUri.toString()
         )
     }
 
-    private fun validation () : Boolean {
+    private fun validation(): Boolean {
         var valid = true
         val email = binding.editTextEmail.text.toString()
         val password = binding.editTextPassword.text.toString()
@@ -101,6 +121,38 @@ class CompanyRegistrationFragment : Fragment() {
         }
 
         return valid
+    }
+
+    private fun uploadImage() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        startActivityForResult(intent, 0)
+
+        auth.uid?.let {
+            storageReference.storage.getReference(FirebaseStorageConstants.COMPANY_PROFILE).child(
+                it
+            )
+        }
+        storageReference.putFile(imageUri)
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    storageReference.downloadUrl
+                        .addOnSuccessListener {
+                        uploadedImageUri = it
+                    }
+                }
+            }
+
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (data != null) {
+            binding.companyLogo.setImageURI(data.data)
+            imageUri = data.data!!
+        }
     }
 
 }

@@ -11,5 +11,6 @@ data class Employee(
     val companyName: String = "",
     val companyId: String = "",
     val designation: String = "",
-    val salary: String = ""
+    val salary: String = "",
+    val points: String = ""
 )

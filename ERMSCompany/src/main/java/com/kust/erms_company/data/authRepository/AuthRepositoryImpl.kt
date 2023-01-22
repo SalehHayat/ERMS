@@ -1,14 +1,20 @@
 package com.kust.erms_company.data.authRepository
 
-import com.kust.erms_company.data.model.Company
-import com.kust.erms_company.util.UiState
+import android.net.Uri
+import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.StorageReference
+import com.kust.erms_company.data.model.Company
 import com.kust.erms_company.util.FireStoreCollection
+import com.kust.erms_company.util.UiState
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class AuthRepositoryImpl(
     private val auth: FirebaseAuth,
-    private val database: FirebaseFirestore,
+    private val database: FirebaseFirestore
 ) : AuthRepository {
 
     override fun registerCompany(

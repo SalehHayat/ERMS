@@ -131,7 +131,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:startIconDrawable="@drawable/ic_country"
+            app:startIconDrawable="@drawable/ic_location"
             app:endIconMode="clear_text"
             app:counterEnabled="true"
             app:counterMaxLength="15"
