@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/companyLoginFragment"
-        android:name="com.kust.erms_company.ui.CompanyLoginFragment"
+        android:name="com.kust.erms_company.ui.auth.CompanyLoginFragment"
         android:label="fragment_company_login"
         tools:layout="@layout/fragment_company_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/companyRegistrationFragment"
-        android:name="com.kust.erms_company.ui.CompanyRegistrationFragment"
+        android:name="com.kust.erms_company.ui.auth.CompanyRegistrationFragment"
         android:label="fragment_company_registration"
         tools:layout="@layout/fragment_company_registration" />
 </navigation>

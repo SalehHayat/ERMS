@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.CompanyLoginFragment">
+    tools:context=".ui.auth.CompanyLoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                 android:layout_height="70dp"
                 android:text="@string/login"
                 android:textAllCaps="true"
-                app:cornerRadius="8dp"
+                app:cornerRadius="6dp"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +137,7 @@
             android:text="@string/register"
             android:textAllCaps="true"
             android:textSize="20sp"
-            app:cornerRadius="8dp"
+            app:cornerRadius="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

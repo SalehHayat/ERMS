@@ -1,6 +1,6 @@
 package com.kust.erms_company.data.model
 
-data class Employee(
+data class EmployeeModel(
     val id: String = "",
     val name: String = "",
     val email: String = "",

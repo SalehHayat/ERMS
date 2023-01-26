@@ -1,4 +1,4 @@
-package com.kust.erms_company.ui
+package com.kust.erms_company.ui.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -70,7 +70,7 @@ class CompanyLoginFragment : Fragment() {
         }
     }
 
-    private fun validation () : Boolean {
+    private fun validation(): Boolean {
         var valid = true
         val email = binding.editTextEmail.text.toString()
         val password = binding.editTextPassword.text.toString()

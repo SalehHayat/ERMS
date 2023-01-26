@@ -1,10 +1,10 @@
-package com.kust.erms_company.ui
+package com.kust.erms_company.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kust.erms_company.data.authRepository.AuthRepository
-import com.kust.erms_company.data.model.Company
+import com.kust.erms_company.data.model.CompanyModel
 import com.kust.erms_company.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -29,10 +29,10 @@ class AuthViewModel @Inject constructor(
     fun register (
         email: String,
         password: String,
-        company : Company
+        companyModel : CompanyModel
     ) {
         _register.value = UiState.Loading
-        authRepository.registerCompany(email, password, company) {
+        authRepository.registerCompany(email, password, companyModel) {
             _register.value = it
         }
     }

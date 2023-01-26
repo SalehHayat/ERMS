@@ -1,6 +1,5 @@
-package com.kust.erms_company.ui
+package com.kust.erms_company.ui.auth
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,13 +10,11 @@ import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.StorageReference
 import com.kust.erms_company.R
-import com.kust.erms_company.data.model.Company
+import com.kust.erms_company.data.model.CompanyModel
 import com.kust.erms_company.databinding.FragmentCompanyRegistrationBinding
-import com.kust.erms_company.util.FirebaseStorageConstants
 import com.kust.erms_company.util.UiState
 import com.kust.erms_company.util.toast
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
 import javax.inject.Inject
 
 
@@ -62,7 +59,7 @@ class CompanyRegistrationFragment : Fragment() {
         }
 
         binding.companyLogo.setOnClickListener {
-                uploadImage()
+//                uploadImage()
         }
     }
 
@@ -87,8 +84,8 @@ class CompanyRegistrationFragment : Fragment() {
         }
     }
 
-    private fun getCompanyObj(): Company {
-        return Company(
+    private fun getCompanyObj(): CompanyModel {
+        return CompanyModel(
             id = "",
             name = binding.editTextCompanyName.text.toString(),
             address = binding.editTextAddress.text.toString(),
@@ -123,36 +120,36 @@ class CompanyRegistrationFragment : Fragment() {
         return valid
     }
 
-    private fun uploadImage() {
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/*"
-        startActivityForResult(intent, 0)
+//    private fun uploadImage() {
+//        val intent = Intent(Intent.ACTION_GET_CONTENT)
+//        intent.type = "image/*"
+//        startActivityForResult(intent, 0)
+//
+//        auth.uid?.let {
+//            storageReference.storage.getReference(FirebaseStorageConstants.COMPANY_PROFILE).child(
+//                it
+//            )
+//        }
+//        storageReference.putFile(imageUri)
+//            .addOnCompleteListener(requireActivity()) { task ->
+//                if (task.isSuccessful) {
+//                    storageReference.downloadUrl
+//                        .addOnSuccessListener {
+//                        uploadedImageUri = it
+//                    }
+//                }
+//            }
+//
+//    }
 
-        auth.uid?.let {
-            storageReference.storage.getReference(FirebaseStorageConstants.COMPANY_PROFILE).child(
-                it
-            )
-        }
-        storageReference.putFile(imageUri)
-            .addOnCompleteListener(requireActivity()) { task ->
-                if (task.isSuccessful) {
-                    storageReference.downloadUrl
-                        .addOnSuccessListener {
-                        uploadedImageUri = it
-                    }
-                }
-            }
-
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (data != null) {
-            binding.companyLogo.setImageURI(data.data)
-            imageUri = data.data!!
-        }
-    }
+//    @Deprecated("Deprecated in Java")
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        if (data != null) {
+//            binding.companyLogo.setImageURI(data.data)
+//            imageUri = data.data!!
+//        }
+//    }
 
 }

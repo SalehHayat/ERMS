@@ -1,6 +1,6 @@
 package com.kust.erms_company.data.model
 
-data class Company(
+data class CompanyModel(
     var id: String = "",
     val name: String = "",
     val address: String = "",

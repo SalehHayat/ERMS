@@ -14,4 +14,11 @@
     <string name="city">City</string>
     <string name="phone">Phone</string>
     <string name="address">Address</string>
+    <string name="content_description_media">add employee icon</string>
+    <string name="title">Add Employee</string>
+    <string name="secondary_text">Please add an employee to the company.</string>
+    <string name="nested_scroll_view">Nested Scroll View Description</string>
+    <string name="name">Name</string>
+    <string name="add_employee">Add Employee</string>
+    <string name="add_emp_sub_heading">Please provide the employee information to register in the company, and Get Started.</string>
 </resources>
