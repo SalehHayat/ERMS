@@ -24,4 +24,11 @@
     <string name="add_employee">Add Employee</string>
     <string name="add_emp_sub_heading">Please provide the employee information to register in the company, and Get Started.</string>
     <string name="cnic_employee_id">CNIC / Employee ID</string>
+    <string name="website">Website</string>
+    <string name="email_example">example@gmail.com</string>
+    <string name="phone_example">03331234567</string>
+    <string name="pakistan">Pakistan</string>
+    <string name="kust">KUST</string>
+    <string name="basic_information">Basic Information</string>
+    <string name="site_example">kust.edu.pk</string>
 </resources>
