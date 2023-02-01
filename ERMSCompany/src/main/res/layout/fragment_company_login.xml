@@ -28,6 +28,7 @@
             android:fontFamily="@font/roboto_bold"
             android:text="@string/login_to_your_company"
             android:textSize="30sp"
+            style="@style/h1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_thin"
+            style="@style/h2"
             android:text="@string/login_below_with_your_credentials"
             app:layout_constraintEnd_toEndOf="@+id/text_view_heading"
             app:layout_constraintStart_toStartOf="@+id/text_view_heading"
@@ -54,7 +56,7 @@
             app:endIconMode="clear_text"
             app:helperText="* example@example.com"
             app:helperTextEnabled="true"
-            app:helperTextTextColor="@color/colorRed"
+            app:helperTextTextColor="@color/md_theme_light_error"
             app:layout_constraintEnd_toEndOf="@+id/tv_sub_heading"
             app:layout_constraintStart_toStartOf="@+id/tv_sub_heading"
             app:layout_constraintTop_toBottomOf="@+id/tv_sub_heading"
@@ -77,9 +79,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             app:endIconMode="password_toggle"
+            app:helperTextTextColor="@color/md_theme_light_error"
             app:helperText="* Six letters\n* One digit\n* One Special Character"
             app:helperTextEnabled="true"
-            app:helperTextTextColor="@color/colorRed"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout_email"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout_email"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_email"
@@ -112,6 +114,7 @@
                 android:textAllCaps="true"
                 app:cornerRadius="6dp"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -122,8 +125,8 @@
                 android:layout_centerInParent="true"
                 android:indeterminate="true"
                 android:visibility="gone"
-                android:id="@+id/progressBar"
-                app:indicatorColor="@color/white" />
+                app:indicatorColor="@color/md_theme_light_onPrimary"
+                android:id="@+id/progressBar" />
 
         </RelativeLayout>
 
@@ -138,6 +141,7 @@
             android:textAllCaps="true"
             android:textSize="20sp"
             app:cornerRadius="6dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

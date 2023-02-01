@@ -21,4 +21,5 @@
     <string name="name">Name</string>
     <string name="add_employee">Add Employee</string>
     <string name="add_emp_sub_heading">Please provide the employee information to register in the company, and Get Started.</string>
+    <string name="cnic_employee_id">CNIC / Employee ID</string>
 </resources>
