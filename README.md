@@ -69,27 +69,27 @@ For business owners and managers, it might seem like a lot of extra effort to im
 	We get motivated by the current environment in the different organizations by seeing the employee’s frustration after so much of hard working and also do their tasks on time and not get any appreciation neither bonus. That's why they leave that Organization and join the other who' s been kind to employees so by using that Android application the organization manager will be well informed all over the employees and giving them tasks specifically to each and checking their work and give them a bonus or even promotion if he/she deserve.
 </p>
 
-<h1>Objectives</h1>
-<ul>
-<li>Reduce time consuming on manual work.</li>
-<li>Clean and accurate management of organization.</li>
-<li>Easy management for Manager.</li>
-<li>Keeping records of employees goes easy.</li>
-<li>Employees Satisfaction.</li>
-<li>Fair selection of employees for rewards.</li>
-<li>User Friendly Application</li>
-</ul>
+# Objectives
 
-<h1>Challenges</h1>
-<ol>
-<li>Making Manager and Employees interaction in application.</li>
-<li>Chatting feature between manager and employee.</li>
-<li>Categorize Employees in different categories like Internees, Graphic designer, Developers etc.</li>
-</ol>
+- Reduce time consuming on manual work.
+- Clean and accurate management of organization.
+- Easy management for Manager.
+- Keeping records of employees goes easy.
+- Employees Satisfaction.
+- Fair selection of employees for rewards.
+- User Friendly Application
 
-<h1>Methodology</h1>
-<ol>          
-<li>Requirements: In this phase we have to gather an information for application to be developed.</li>
+
+# Challenges
+
+- Making Manager and Employees interaction in application.
+- Chatting feature between manager and employee.
+- Categorize Employees in different categories like Internees, Graphic designer, Developers etc.
+
+
+# Methodology
+         
+Requirements: In this phase we have to gather an information for application to be developed.</li>
 <li>Design: What we have collected in phase 1. We have to studied it and start design implementations.</li>
 <li>Development: After completing design phase we have to start Development phase.</li>
 <li>Testing: All the units developed in the implementation phase are integrated into a system we have to test each unit.</li></li>
