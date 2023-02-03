@@ -89,32 +89,32 @@ For business owners and managers, it might seem like a lot of extra effort to im
 
 # Methodology
          
-Requirements: In this phase we have to gather an information for application to be developed.</li>
-<li>Design: What we have collected in phase 1. We have to studied it and start design implementations.</li>
-<li>Development: After completing design phase we have to start Development phase.</li>
-<li>Testing: All the units developed in the implementation phase are integrated into a system we have to test each unit.</li></li>
-<li>Deployment: Once the functional and non-functional testing is done; the product is deployed in the customer environment or released into the market.</li>
-<li>Maintenance:  There will be some issues in the app. To fix those issues, patches are released. Maintenance is done to deliver these changes in the app environment.</li>
- </ol>
+1. Requirements: In this phase we have to gather an information for application to be developed.
+2. Design: What we have collected in phase 1. We have to studied it and start design implementations.
+3. Development: After completing design phase we have to start Development phase.
+4. Testing: All the units developed in the implementation phase are integrated into a system we have to test each unit.
+5. Deployment: Once the functional and non-functional testing is done; the product is deployed in the customer environment or released into the market.
+5. Maintenance:  There will be some issues in the app. To fix those issues, patches are released. Maintenance is done to deliver these changes in the app environment.
+
  
-<h1>Tools and Techniques</h1>
-<ul>
-<li>Android Studio</li>
-<li>Kotlin for back-end</li>
-<li>XML for front-end</li>
-<li>Firebase Database</li>
-<li>Firebase storage</li>
-<li>Firebase auth</li>
-<li>External Libraries</li>
-<li>External Dependencies</li>
-</ul>
+# Tools and Techniques
+
+- Android Studio
+- Kotlin for back-end
+- XML for front-end
+- Firebase Database
+- Firebase storage
+- Firebase auth
+- External Libraries
+- External Dependencies
 
 
-<h2>References:</h2>
-<ol>
-<li>https://play.google.com/store/apps/details?id=com.technoapps.employeeattendance</li>
-<li>https://bonus.ly</li>
-</ol>
 
-## LICENSE 
+# References:
+
+- https://play.google.com/store/apps/details?id=com.technoapps.employeeattendance
+- https://bonus.ly
+
+
+# LICENSE 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
