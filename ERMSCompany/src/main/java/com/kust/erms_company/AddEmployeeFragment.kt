@@ -22,22 +22,17 @@ class AddEmployeeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAddEmployeeBinding.inflate(inflater, container, false)
 
 
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-    }
-
+    @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EmployeeViewModel::class.java)
+        viewModel = ViewModelProvider(this)[EmployeeViewModel::class.java]
         // TODO: Use the ViewModel
     }
 
