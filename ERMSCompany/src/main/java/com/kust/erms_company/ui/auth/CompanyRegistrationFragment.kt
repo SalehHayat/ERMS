@@ -14,6 +14,7 @@ import com.kust.erms_company.R
 import com.kust.erms_company.data.model.CompanyModel
 import com.kust.erms_company.databinding.FragmentCompanyRegistrationBinding
 import com.kust.erms_company.ui.dashboard.DashBoardActivity
+import com.kust.erms_company.util.FirebaseStorageConstants
 import com.kust.erms_company.util.UiState
 import com.kust.erms_company.util.toast
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +28,7 @@ class CompanyRegistrationFragment : Fragment() {
     lateinit var storageReference: StorageReference
 
     @Inject
-    lateinit var auth : FirebaseAuth
+    lateinit var auth: FirebaseAuth
 
     private var _binding: FragmentCompanyRegistrationBinding? = null
     private val binding get() = _binding!!
@@ -35,7 +36,7 @@ class CompanyRegistrationFragment : Fragment() {
     private val viewModel: AuthViewModel by viewModels()
 
     private lateinit var imageUri: Uri
-    private lateinit var uploadedImageUri : Uri
+    private lateinit var uploadedImageUri: Uri
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,6 +52,10 @@ class CompanyRegistrationFragment : Fragment() {
 
         observer()
 
+//        binding.companyLogo.setOnClickListener {
+//            selectImage()
+//        }
+
         binding.btnRegister.setOnClickListener {
             if (validation()) {
                 val email = binding.editTextEmail.text.toString()
@@ -59,16 +64,13 @@ class CompanyRegistrationFragment : Fragment() {
                 viewModel.register(email, password, company)
             }
         }
-
-        binding.companyLogo.setOnClickListener {
-//                uploadImage()
-        }
     }
 
     private fun observer() {
         viewModel.register.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Success -> {
+//                    uploadImage()
                     binding.btnRegister.text = getString(R.string.register)
                     binding.progressBar.visibility = View.GONE
                     toast(state.data)
@@ -121,15 +123,16 @@ class CompanyRegistrationFragment : Fragment() {
         } else {
             binding.editTextPassword.error = null
         }
-
         return valid
     }
 
-//    private fun uploadImage() {
+//    private fun selectImage() {
 //        val intent = Intent(Intent.ACTION_GET_CONTENT)
 //        intent.type = "image/*"
-//        startActivityForResult(intent, 0)
+//        startActivityForResult(intent, 1)
+//    }
 //
+//    private fun uploadImage() {
 //        auth.uid?.let {
 //            storageReference.storage.getReference(FirebaseStorageConstants.COMPANY_PROFILE).child(
 //                it
@@ -140,11 +143,10 @@ class CompanyRegistrationFragment : Fragment() {
 //                if (task.isSuccessful) {
 //                    storageReference.downloadUrl
 //                        .addOnSuccessListener {
-//                        uploadedImageUri = it
-//                    }
+//                            uploadedImageUri = it
+//                        }
 //                }
 //            }
-//
 //    }
 
 //    @Deprecated("Deprecated in Java")
@@ -152,9 +154,10 @@ class CompanyRegistrationFragment : Fragment() {
 //        super.onActivityResult(requestCode, resultCode, data)
 //
 //        if (data != null) {
-//            binding.companyLogo.setImageURI(data.data)
-//            imageUri = data.data!!
+//            if (data.data != null) {
+//                binding.companyLogo.setImageURI(data.data)
+//                imageUri = data.data!!
+//            }
 //        }
 //    }
-
 }

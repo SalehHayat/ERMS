@@ -6,11 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kust.erms_company.data.model.FeatureModel
 import com.kust.erms_company.databinding.DashboardFeatureItemBinding
 
-class FeaturesAdapter (
-    val onItemClicked : ((Int, FeatureModel) -> Unit)? = null
-        ) : RecyclerView.Adapter<FeaturesAdapter.ViewHolder>() {
+class FeaturesAdapter () : RecyclerView.Adapter<FeaturesAdapter.ViewHolder>() {
 
-    private var features: MutableList<FeatureModel> = arrayListOf()
+    var features: MutableList<FeatureModel> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = DashboardFeatureItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -31,9 +29,6 @@ class FeaturesAdapter (
             binding.featureImage.setImageResource(feature.image)
             binding.btnFeature.text = feature.title
 
-            binding.card.setOnClickListener {
-                onItemClicked?.invoke(position, feature)
-            }
         }
     }
 }

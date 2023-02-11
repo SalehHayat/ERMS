@@ -77,7 +77,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -92,18 +92,17 @@
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/email" />
 
                     <TextView
                         android:id="@+id/tv_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
+                        android:layout_marginStart="100dp"
                         android:text="@string/email_example" />
-                </LinearLayout>
+                </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -116,20 +115,19 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                     <TextView
-                        android:layout_width="40dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/phone" />
 
                     <TextView
                         android:id="@+id/tv_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
+                        android:layout_marginStart="100dp"
                         android:text="@string/phone_example" />
-                </LinearLayout>
+                </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/linearLayout3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -144,16 +142,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/website" />
 
                     <TextView
                         android:id="@+id/textView14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_marginStart="100dp"
                         android:text="@string/site_example" />
-                </LinearLayout>
+                </RelativeLayout>
 
                 <View
                     android:id="@+id/view2"
@@ -186,7 +183,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/linearLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -201,18 +198,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/country" />
 
                     <TextView
                         android:id="@+id/tv_country"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_marginStart="100dp"
                         android:text="@string/pakistan" />
-                </LinearLayout>
+                </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/linearLayout5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -227,18 +223,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="State" />
 
                     <TextView
                         android:id="@+id/tv_state"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_marginStart="100dp"
                         android:text="KP" />
-                </LinearLayout>
+                </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
@@ -252,17 +247,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Full Address" />
 
                     <TextView
                         android:id="@+id/tv_full_address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="KUST, Kohat, Pakistan"
-                        android:maxLines="3"/>
-                </LinearLayout>
+                        android:layout_marginStart="100dp"
+                        android:maxLines="3"
+                        android:text="KUST, Kohat, Pakistan" />
+                </RelativeLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

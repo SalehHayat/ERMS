@@ -13,38 +13,24 @@
         android:layout_height="wrap_content">
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/company_logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="centerCrop"
-            app:civ_border_width="2dp"
-            android:src="@drawable/avatar1"
-            app:layout_constraintEnd_toEndOf="@+id/tv_sub_heading"
-            app:layout_constraintStart_toStartOf="@+id/tv_sub_heading"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sub_heading" />
-
         <TextView
             android:id="@+id/text_view_heading"
+            style="@style/h1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/register_your_company"
-            style="@style/h1"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_sub_heading"
+            style="@style/h2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            style="@style/h2"
             android:fontFamily="@font/nunito_sans_semibold"
             android:text="@string/provide_your_company_information_to_get_started"
-            app:layout_constraintEnd_toEndOf="@+id/text_view_heading"
             app:layout_constraintStart_toStartOf="@+id/text_view_heading"
             app:layout_constraintTop_toBottomOf="@+id/text_view_heading" />
 
@@ -53,22 +39,24 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
+            android:hint="@string/email"
             app:endIconMode="clear_text"
-            app:helperText="* example@example.com"
+            app:helperText="Required*"
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/md_theme_light_error"
             app:layout_constraintEnd_toEndOf="@+id/tv_sub_heading"
             app:layout_constraintStart_toStartOf="@+id/tv_sub_heading"
-            app:layout_constraintTop_toBottomOf="@+id/company_logo"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sub_heading"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
+                android:fontFamily="@font/titillium_web"
                 android:inputType="textEmailAddress"
+                android:maxLines="1"
                 android:textColorHint="#8D6E63" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,7 +65,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:hint="@string/password"
             app:endIconMode="password_toggle"
             app:helperText="* Six letters\n* One digit\n* One Special Character"
             app:helperTextEnabled="true"
@@ -91,8 +79,9 @@
                 android:id="@+id/edit_text_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
                 android:inputType="textPassword"
+                android:maxLines="1"
+                android:fontFamily="@font/titillium_web"
                 android:textColorHint="#8D6E63" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,21 +90,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:startIconDrawable="@drawable/ic_name"
-            app:endIconMode="clear_text"
+            android:hint="@string/company_name"
             app:counterEnabled="true"
             app:counterMaxLength="30"
+            app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+            app:startIconDrawable="@drawable/ic_name">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_company_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edit_text_company_name"
                 android:inputType="text"
-                android:hint="@string/company_name" />
+                android:maxLength="30"
+                android:fontFamily="@font/titillium_web"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -123,21 +115,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:startIconDrawable="@drawable/ic_location"
-            app:endIconMode="clear_text"
+            android:hint="@string/country"
             app:counterEnabled="true"
             app:counterMaxLength="15"
+            app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+            app:startIconDrawable="@drawable/ic_location">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_country"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edit_text_country"
                 android:inputType="text"
-                android:hint="@string/country" />
+                android:maxLength="15"
+                android:fontFamily="@font/titillium_web"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -145,21 +140,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:startIconDrawable="@drawable/ic_city"
-            app:endIconMode="clear_text"
+            android:hint="@string/city"
             app:counterEnabled="true"
             app:counterMaxLength="20"
+            app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+            app:startIconDrawable="@drawable/ic_city">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edit_text_city"
                 android:inputType="text"
-                android:hint="@string/city" />
+                android:maxLength="20"
+                android:fontFamily="@font/titillium_web"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -167,21 +165,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:startIconDrawable="@drawable/ic_phone"
-            app:endIconMode="clear_text"
+            android:hint="@string/phone"
             app:counterEnabled="true"
             app:counterMaxLength="11"
+            app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
+            app:startIconDrawable="@drawable/ic_phone">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edit_text_phone"
                 android:inputType="phone"
-                android:hint="@string/phone" />
+                android:maxLength="11"
+                android:fontFamily="@font/titillium_web"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -189,6 +190,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:hint="@string/address"
             app:counterEnabled="true"
             app:counterMaxLength="50"
             app:endIconMode="clear_text"
@@ -199,11 +201,13 @@
             app:startIconDrawable="@drawable/ic_address">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edit_text_address"
                 android:inputType="text"
-                android:hint="@string/address" />
+                android:maxLength="50"
+                android:fontFamily="@font/titillium_web"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
@@ -211,6 +215,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
@@ -221,9 +226,9 @@
                 android:layout_height="70dp"
                 android:text="@string/register"
                 android:textAllCaps="true"
-                app:cornerRadius="8dp"
                 android:textSize="20sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/titillium_web_bold"
+                app:cornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -236,7 +241,7 @@
                 android:layout_centerInParent="true"
                 android:indeterminate="true"
                 android:visibility="gone"
-                app:indicatorColor="@color/md_theme_light_onPrimary"/>
+                app:indicatorColor="@color/md_theme_light_onPrimary" />
 
         </RelativeLayout>
 
