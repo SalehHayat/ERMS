@@ -1,7 +1,7 @@
 package com.kust.erms_company.data.model
 
 data class EmployeeModel(
-    val id: String = "",
+    var id: String = "",
     val name: String = "",
     val email: String = "",
     val phone: String = "",
@@ -9,7 +9,7 @@ data class EmployeeModel(
     val city: String = "",
     val country: String = "",
     val companyName: String = "",
-    val companyId: String = "",
+    var companyId: String = "",
     val designation: String = "",
     val salary: String = "",
     val points: String = ""

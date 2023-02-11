@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/addEmployeeFragment"
-        android:name="com.kust.erms_company.AddEmployeeFragment"
+        android:name="com.kust.erms_company.ui.addEmployee.AddEmployeeFragment"
         android:label="fragment_add_employee"
         tools:layout="@layout/fragment_add_employee" />
 </navigation>
