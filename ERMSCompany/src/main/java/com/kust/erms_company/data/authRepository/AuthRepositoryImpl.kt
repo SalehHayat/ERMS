@@ -91,6 +91,7 @@ class AuthRepositoryImpl(
     }
 
     override fun updateCompanyInformation(companyModel: CompanyModel, result: (UiState<String>) -> Unit) {
+
         val documentReference = database.collection(FireStoreCollection.COMPANY).document(companyModel.id)
 
         documentReference
@@ -102,4 +103,10 @@ class AuthRepositoryImpl(
                 result.invoke(UiState.Error("Error updating companyModel"))
             }
     }
+
+    override fun isUserLoggedIn(): Boolean {
+        return auth.currentUser != null
+    }
+
+
 }

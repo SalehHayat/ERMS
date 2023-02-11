@@ -1,5 +1,6 @@
 package com.kust.erms_company.ui.auth
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import com.google.firebase.storage.StorageReference
 import com.kust.erms_company.R
 import com.kust.erms_company.data.model.CompanyModel
 import com.kust.erms_company.databinding.FragmentCompanyRegistrationBinding
+import com.kust.erms_company.ui.dashboard.DashBoardActivity
 import com.kust.erms_company.util.UiState
 import com.kust.erms_company.util.toast
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,6 +72,9 @@ class CompanyRegistrationFragment : Fragment() {
                     binding.btnRegister.text = getString(R.string.register)
                     binding.progressBar.visibility = View.GONE
                     toast(state.data)
+                    val intent = Intent(requireContext(), DashBoardActivity::class.java)
+                    startActivity(intent)
+                    requireActivity().finish()
                 }
                 is UiState.Error -> {
                     binding.progressBar.visibility = View.GONE

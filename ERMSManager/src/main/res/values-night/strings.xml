@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">ERMS Manager</string>
     <string name="email">Email</string>
     <string name="login">Login</string>
     <string name="register">Register</string>

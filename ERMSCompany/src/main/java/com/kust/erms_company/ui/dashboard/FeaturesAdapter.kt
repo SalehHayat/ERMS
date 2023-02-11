@@ -29,8 +29,7 @@ class FeaturesAdapter (
     inner class ViewHolder(private val binding: DashboardFeatureItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(feature: FeatureModel, position: Int) {
             binding.featureImage.setImageResource(feature.image)
-            binding.featureTitle.text = feature.title
-            binding.featureSubTitle.text = feature.subTitle
+            binding.btnFeature.text = feature.title
 
             binding.card.setOnClickListener {
                 onItemClicked?.invoke(position, feature)
