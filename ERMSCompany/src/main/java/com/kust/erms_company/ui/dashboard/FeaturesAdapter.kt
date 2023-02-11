@@ -1,18 +1,35 @@
 package com.kust.erms_company.ui.dashboard
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.kust.erms_company.AddEmployeeFragment
+import com.kust.erms_company.R
 import com.kust.erms_company.data.model.FeatureModel
 import com.kust.erms_company.databinding.DashboardFeatureItemBinding
 
-class FeaturesAdapter () : RecyclerView.Adapter<FeaturesAdapter.ViewHolder>() {
+class FeaturesAdapter() : RecyclerView.Adapter<FeaturesAdapter.ViewHolder>() {
 
     var features: MutableList<FeatureModel> = arrayListOf()
 
+    private lateinit var listener: OnItemClickListener
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = DashboardFeatureItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(itemView)
+        val itemView =
+            DashboardFeatureItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(itemView, listener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -24,11 +41,20 @@ class FeaturesAdapter () : RecyclerView.Adapter<FeaturesAdapter.ViewHolder>() {
         return features.size
     }
 
-    inner class ViewHolder(private val binding: DashboardFeatureItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: DashboardFeatureItemBinding, listener : OnItemClickListener) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(feature: FeatureModel, position: Int) {
             binding.featureImage.setImageResource(feature.image)
             binding.btnFeature.text = feature.title
+        }
 
+        init {
+            binding.btnFeature.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(position)
+                }
+            }
         }
     }
 }

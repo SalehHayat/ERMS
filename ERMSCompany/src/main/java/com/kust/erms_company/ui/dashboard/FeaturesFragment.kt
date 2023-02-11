@@ -36,13 +36,14 @@ class FeaturesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var features = mutableListOf<FeatureModel>()
+        val features = mutableListOf<FeatureModel>()
 
-        features.add(FeatureModel("Create Event", R.drawable.avatar2))
-        features.add(FeatureModel("Create Event", R.drawable.avatar3))
-        features.add(FeatureModel("Create Event", R.drawable.avatar6))
-        features.add(FeatureModel("Create Event", R.drawable.avatar4))
-        features.add(FeatureModel("Create Event", R.drawable.avatar8))
+        features.add(FeatureModel("Add Employee", R.drawable.ic_add))
+        features.add(FeatureModel("Manage Employee", R.drawable.ic_manage_emp))
+        features.add(FeatureModel("Select Manager", R.drawable.ic_select_emp))
+        features.add(FeatureModel("Setting", R.drawable.ic_setting))
+        features.add(FeatureModel("Profile", R.drawable.ic_profile))
+        features.add(FeatureModel("Logout", R.drawable.ic_logout))
 
         adapter.features = features
 
@@ -52,6 +53,30 @@ class FeaturesFragment : Fragment() {
 
         binding.rvFeatures.adapter = adapter
 
+        adapter.setOnItemClickListener(object : FeaturesAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                when (position) {
+                    0 -> {
+                        findNavController().navigate(R.id.action_featuresFragment_to_addEmployeeFragment)
+                    }
+                    1 -> {
+
+                    }
+                    2 -> {
+
+                    }
+                    3 -> {
+
+                    }
+                    4 -> {
+
+                    }
+                    5 -> {
+
+                    }
+                }
+            }
+        })
     }
 
     companion object {
