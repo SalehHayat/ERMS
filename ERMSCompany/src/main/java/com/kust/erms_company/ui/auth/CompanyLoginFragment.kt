@@ -1,5 +1,6 @@
 package com.kust.erms_company.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.kust.erms_company.R
 import com.kust.erms_company.databinding.FragmentCompanyLoginBinding
+import com.kust.erms_company.ui.dashboard.DashBoardActivity
 import com.kust.erms_company.util.UiState
 import com.kust.erms_company.util.toast
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +30,13 @@ class CompanyLoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCompanyLoginBinding.inflate(inflater, container, false)
+
+        if (viewModel.isUserLoggedIn.value == true) {
+            val intent = Intent(requireContext(), DashBoardActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
+
         return binding.root
     }
 
@@ -56,6 +65,9 @@ class CompanyLoginFragment : Fragment() {
                     binding.btnLogin.text = getString(R.string.login)
                     binding.progressBar.visibility = View.GONE
                     toast(state.data)
+                    val intent = Intent(requireContext(), DashBoardActivity::class.java)
+                    startActivity(intent)
+                    requireActivity().finish()
                 }
                 is UiState.Error -> {
                     binding.progressBar.visibility = View.GONE

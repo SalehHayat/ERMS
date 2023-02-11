@@ -9,4 +9,5 @@ interface AuthRepository {
     fun forgotPassword(email : String, result : (UiState<String>) -> Unit)
     fun logoutCompany(result : () -> Unit)
     fun updateCompanyInformation(companyModel: CompanyModel, result : (UiState<String>) -> Unit)
+    fun isUserLoggedIn() : Boolean
 }

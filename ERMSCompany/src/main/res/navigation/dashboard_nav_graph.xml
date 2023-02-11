@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_nav_graph"
+    app:startDestination="@id/featuresFragment">
+    <fragment
+        android:id="@+id/featuresFragment"
+        android:name="com.kust.erms_company.ui.dashboard.FeaturesFragment"
+        android:label="fragment_features"
+        tools:layout="@layout/fragment_features" >
+        <action
+            android:id="@+id/action_featuresFragment_to_addEmployeeFragment"
+            app:destination="@id/addEmployeeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEmployeeFragment"
+        android:name="com.kust.erms_company.AddEmployeeFragment"
+        android:label="fragment_add_employee"
+        tools:layout="@layout/fragment_add_employee" />
+</navigation>

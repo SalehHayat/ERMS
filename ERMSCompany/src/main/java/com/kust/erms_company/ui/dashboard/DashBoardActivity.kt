@@ -7,6 +7,6 @@ import com.kust.erms_company.R
 class DashBoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dashboard_feature_item)
+        setContentView(R.layout.activity_dashboard)
     }
 }

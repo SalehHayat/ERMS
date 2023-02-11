@@ -26,6 +26,14 @@ class AuthViewModel @Inject constructor(
     val forgotPassword : LiveData<UiState<String>>
         get() = _forgotPassword
 
+    private val _isUserLoggedIn = MutableLiveData<Boolean>()
+    val isUserLoggedIn : LiveData<Boolean>
+        get() = _isUserLoggedIn
+
+    init {
+        _isUserLoggedIn.value = authRepository.isUserLoggedIn()
+    }
+
     fun register (
         email: String,
         password: String,
@@ -58,5 +66,6 @@ class AuthViewModel @Inject constructor(
 
     fun logout (result : () -> Unit) {
         authRepository.logoutCompany(result)
+        _login.value = UiState.Success("Logout Successful")
     }
 }
