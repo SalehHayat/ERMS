@@ -55,7 +55,6 @@ class CompanyLoginFragment : Fragment() {
         binding.btnRegister.setOnClickListener {
             findNavController().navigate(R.id.action_companyLoginFragment_to_companyRegistrationFragment)
         }
-
     }
 
     private fun observer() {
@@ -105,6 +104,59 @@ class CompanyLoginFragment : Fragment() {
 
         return valid
     }
+
+    fun isValidPassword(password: String): Boolean {
+        // Set password requirements
+        val minLength = 8
+        val maxLength = 20
+        val requiresLowercase = true
+        val requiresUppercase = true
+        val requiresDigit = true
+        val requiresSpecialChar = true
+
+        // Check password length
+        if (password.length < minLength || password.length > maxLength) {
+            binding.editTextPassword.error = "Length should be between 8-20"
+            return false
+        }
+
+        // Check for required character types
+        var hasLowercase = false
+        var hasUppercase = false
+        var hasDigit = false
+        var hasSpecialChar = false
+
+        for (c in password) {
+            if (c.isLowerCase()) {
+                hasLowercase = true
+            }
+            if (c.isUpperCase()) {
+                hasUppercase = true
+            }
+            if (c.isDigit()) {
+                hasDigit = true
+            }
+            if (c in "!@#$%^&*()_+-=[]{}|\\;:'\"<>,.?/~`") {
+                hasSpecialChar = true
+            }
+        }
+        if (requiresLowercase && !hasLowercase) {
+            return false
+        }
+        if (requiresUppercase && !hasUppercase) {
+            return false
+        }
+        if (requiresDigit && !hasDigit) {
+            return false
+        }
+        if (requiresSpecialChar && !hasSpecialChar) {
+            return false
+        }
+
+        // If all checks pass, password is valid
+        return true
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

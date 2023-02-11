@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="90dp"
             android:scaleType="fitStart"
             android:src="@drawable/wave"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +52,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             app:endIconMode="clear_text"
-            app:helperText="* example@example.com"
-            app:helperTextEnabled="true"
+            app:helperText="Required*"
             app:helperTextTextColor="@color/md_theme_light_error"
+            app:helperTextEnabled="true"
+            android:hint="@string/email"
             app:layout_constraintEnd_toEndOf="@+id/tv_sub_heading"
             app:layout_constraintStart_toStartOf="@+id/tv_sub_heading"
             app:layout_constraintTop_toBottomOf="@+id/tv_sub_heading"
@@ -64,8 +65,9 @@
                 android:id="@+id/edit_text_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
+                android:fontFamily="@font/titillium_web"
                 android:inputType="textEmailAddress"
+                android:maxLines="1"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,9 +79,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             app:endIconMode="password_toggle"
-            app:helperTextTextColor="@color/md_theme_light_error"
             app:helperText="* Six letters\n* One digit\n* One Special Character"
             app:helperTextEnabled="true"
+            android:hint="@string/password"
             app:layout_constraintEnd_toEndOf="@+id/textInputLayout_email"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout_email"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_email"
@@ -89,8 +91,8 @@
                 android:id="@+id/edit_text_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
                 android:inputType="textPassword"
+                android:maxLines="1"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 

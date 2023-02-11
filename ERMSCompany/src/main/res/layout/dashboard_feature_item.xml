@@ -4,13 +4,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card"
+    android:id="@+id/feature_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="5dp"
     app:cardCornerRadius="5dp"
     app:strokeColor="@color/transparent"
-    tools:ignore="MissingDefaultResource">
+    tools:ignore="MissingDefaultResource"
+    android:focusable="true">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,10 +22,15 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_feature"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_marginStart="40dp"
-            android:text="Feature Name"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/feature_name"
             app:cornerRadius="5dp"
+            android:paddingEnd="5dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,11 +38,11 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/feature_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@drawable/avatar4"
             app:civ_border_color="@color/md_theme_light_primary"
-            app:civ_border_width="1dp"
+            app:civ_border_width="3dp"
             app:layout_constraintBottom_toBottomOf="@+id/btn_feature"
             app:layout_constraintEnd_toStartOf="@+id/btn_feature"
             app:layout_constraintStart_toStartOf="@+id/btn_feature"

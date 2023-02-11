@@ -13,7 +13,7 @@
     </style>
 
     <style name="body">
-        <item name="fontFamily">@font/titillium_web</item>
+        <item name="android:fontFamily">@font/titillium_web</item>
         <item name="android:textSize">16sp</item>
     </style>
 
