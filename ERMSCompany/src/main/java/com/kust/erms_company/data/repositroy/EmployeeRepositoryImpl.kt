@@ -10,21 +10,28 @@ class EmployeeRepositoryImpl(
     private val auth: FirebaseAuth,
     private val database: FirebaseFirestore
 ) : EmployeeRepository {
-    override fun addEmployee(employeeModel: EmployeeModel, result: (UiState<Pair<EmployeeModel, String>>) -> Unit) {
+
+    override fun addEmployee(
+        employeeModel: EmployeeModel,
+        result: (UiState<Pair<EmployeeModel, String>>) -> Unit
+    ) {
         val document = database.collection(FireStoreCollection.EMPLOYEE).document()
         employeeModel.id = document.id
         employeeModel.companyId = auth.currentUser?.uid.toString()
         document.set(employeeModel).addOnSuccessListener {
-            result.invoke(UiState.Success(Pair(employeeModel,"Employee added successfully")))
+            result.invoke(UiState.Success(Pair(employeeModel, "Employee added successfully")))
         }.addOnFailureListener {
             result(UiState.Error(it.message.toString()))
         }
     }
 
-    override fun updateEmployee(employeeModel: EmployeeModel, result: (UiState<Pair<EmployeeModel, String>>) -> Unit) {
+    override fun updateEmployee(
+        employeeModel: EmployeeModel,
+        result: (UiState<Pair<EmployeeModel, String>>) -> Unit
+    ) {
         val document = database.collection(FireStoreCollection.EMPLOYEE).document(employeeModel.id)
         document.set(employeeModel).addOnSuccessListener {
-            result.invoke(UiState.Success(Pair(employeeModel,"Employee updated successfully")))
+            result.invoke(UiState.Success(Pair(employeeModel, "Employee updated successfully")))
         }.addOnFailureListener {
             result(UiState.Error(it.message.toString()))
         }
@@ -39,12 +46,12 @@ class EmployeeRepositoryImpl(
         }
     }
 
-    override fun getEmployeeList(result: (UiState<List<EmployeeModel>>) -> Unit) {
+    override fun getEmployeeList(employeeList: EmployeeModel?, result: (UiState<List<EmployeeModel>>) -> Unit) {
         database.collection(FireStoreCollection.EMPLOYEE).get().addOnSuccessListener {
-            val list = mutableListOf<EmployeeModel>()
-            for (document in it.documents) {
+            val list = arrayListOf<EmployeeModel>()
+            for (document in it) {
                 val employee = document.toObject(EmployeeModel::class.java)
-                employee?.let { it1 -> list.add(it1) }
+                list.add(employee)
             }
             result.invoke(UiState.Success(list))
         }.addOnFailureListener {

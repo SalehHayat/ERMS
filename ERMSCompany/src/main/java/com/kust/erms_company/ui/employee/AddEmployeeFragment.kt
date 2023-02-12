@@ -38,7 +38,7 @@ class AddEmployeeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this)[EmployeeViewModel::class.java]
-        // TODO: Use the ViewModel
+
         observer()
 
         binding.btnRegister.setOnClickListener {

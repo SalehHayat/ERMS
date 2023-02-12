@@ -1,5 +1,6 @@
 package com.kust.erms_company.ui.employee
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kust.erms_company.data.model.EmployeeModel
@@ -29,6 +30,10 @@ class EmployeeViewModel @Inject constructor(
     val getEmployeeList : MutableLiveData<UiState<List<EmployeeModel>>>
         get() = _getEmployeeList
 
+    init {
+        getEmployee(EmployeeModel())
+    }
+
     fun addEmployee(employeeModel: EmployeeModel) {
         _addEmployee.value = UiState.Loading
         employeeRepository.addEmployee(employeeModel) {
@@ -50,9 +55,9 @@ class EmployeeViewModel @Inject constructor(
         }
     }
 
-    fun getEmployeeList() {
+    private fun getEmployee(employeeList : EmployeeModel) {
         _getEmployeeList.value = UiState.Loading
-        employeeRepository.getEmployeeList {
+        employeeRepository.getEmployeeList(employeeList) {
             _getEmployeeList.value = it
         }
     }

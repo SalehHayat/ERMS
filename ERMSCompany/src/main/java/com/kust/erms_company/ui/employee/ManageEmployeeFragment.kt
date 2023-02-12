@@ -2,14 +2,13 @@ package com.kust.erms_company.ui.employee
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kust.erms_company.R
 import com.kust.erms_company.data.model.EmployeeModel
 import com.kust.erms_company.databinding.FragmentManageEmployeeBinding
 import com.kust.erms_company.util.UiState
@@ -20,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class ManageEmployeeFragment : Fragment() {
 
-    val TAG = "ManageEmployeeFragment"
+    private val TAG = "ManageEmployeeFragment"
     private var _binding : FragmentManageEmployeeBinding? = null
     private val binding get() = _binding!!
 
@@ -37,10 +36,14 @@ class ManageEmployeeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentManageEmployeeBinding.inflate(inflater, container, false)
-        observer()
+
+        progressDialog.setMessage("Loading...")
+        progressDialog.setCancelable(false)
+        progressDialog.setCanceledOnTouchOutside(false)
+
         return binding.root
     }
 
@@ -52,8 +55,11 @@ class ManageEmployeeFragment : Fragment() {
         binding.rvEmployee.layoutManager = LinearLayoutManager(requireContext())
         binding.rvEmployee.adapter = adapter
 
-        progressDialog.setMessage("Loading...")
-        progressDialog.setCancelable(false)
+        adapter.setOnItemClickListener(object : EmployeeListingAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                toast(adapter.employees[position].toString())
+            }
+        })
 
     }
 
@@ -67,6 +73,7 @@ class ManageEmployeeFragment : Fragment() {
                     adapter.employees = it.data as MutableList<EmployeeModel>
                     adapter.updateList(it.data.toMutableList())
                     progressDialog.dismiss()
+                    toast(it.data.toString())
                 }
                 is UiState.Error -> {
                     progressDialog.dismiss()
