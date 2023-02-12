@@ -12,10 +12,30 @@
         <action
             android:id="@+id/action_featuresFragment_to_addEmployeeFragment"
             app:destination="@id/addEmployeeFragment" />
+        <action
+            android:id="@+id/action_featuresFragment_to_manageEmployeeFragment"
+            app:destination="@id/manageEmployeeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/addEmployeeFragment"
-        android:name="com.kust.erms_company.AddEmployeeFragment"
+        android:name="com.kust.erms_company.ui.employee.AddEmployeeFragment"
         android:label="fragment_add_employee"
-        tools:layout="@layout/fragment_add_employee" />
+        tools:layout="@layout/fragment_add_employee" >
+        <action
+            android:id="@+id/action_addEmployeeFragment_to_featuresFragment"
+            app:destination="@id/featuresFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageEmployeeFragment"
+        android:name="com.kust.erms_company.ui.employee.ManageEmployeeFragment"
+        android:label="fragment_manage_employee"
+        tools:layout="@layout/fragment_manage_employee" />
 </navigation>

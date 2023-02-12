@@ -1,8 +1,9 @@
-package com.kust.erms_company.data.authRepository
+package com.kust.erms_company.data.repositroy
 
 import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kust.erms_company.data.model.CompanyModel
+import com.kust.erms_company.data.repositroy.AuthRepository
 import com.kust.erms_company.util.FireStoreCollection
 import com.kust.erms_company.util.UiState
 

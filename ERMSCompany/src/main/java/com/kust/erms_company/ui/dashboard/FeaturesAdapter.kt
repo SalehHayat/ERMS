@@ -1,14 +1,8 @@
 package com.kust.erms_company.ui.dashboard
 
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.kust.erms_company.AddEmployeeFragment
-import com.kust.erms_company.R
 import com.kust.erms_company.data.model.FeatureModel
 import com.kust.erms_company.databinding.DashboardFeatureItemBinding
 
