@@ -12,10 +12,22 @@
         <action
             android:id="@+id/action_featuresFragment_to_addEmployeeFragment"
             app:destination="@id/addEmployeeFragment" />
+        <action
+            android:id="@+id/action_featuresFragment_to_manageEmployeeFragment"
+            app:destination="@id/manageEmployeeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addEmployeeFragment"
-        android:name="com.kust.erms_company.ui.addEmployee.AddEmployeeFragment"
+        android:name="com.kust.erms_company.ui.employee.AddEmployeeFragment"
         android:label="fragment_add_employee"
-        tools:layout="@layout/fragment_add_employee" />
+        tools:layout="@layout/fragment_add_employee" >
+        <action
+            android:id="@+id/action_addEmployeeFragment_to_featuresFragment"
+            app:destination="@id/featuresFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageEmployeeFragment"
+        android:name="com.kust.erms_company.ui.employee.ManageEmployeeFragment"
+        android:label="fragment_manage_employee"
+        tools:layout="@layout/fragment_manage_employee" />
 </navigation>

@@ -12,5 +12,7 @@ data class EmployeeModel(
     var companyId: String = "",
     val designation: String = "",
     val salary: String = "",
-    val points: String = ""
+    val points: String = "",
+    val isManager : Boolean = false,
+    val image: Int = 0
 )

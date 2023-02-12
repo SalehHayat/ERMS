@@ -30,4 +30,6 @@
     <string name="kust">KUST</string>
     <string name="basic_information">Basic Information</string>
     <string name="feature_name">Feature Name</string>
+    <string name="department">Department Name</string>
+    <string name="manager">Manager</string>
 </resources>

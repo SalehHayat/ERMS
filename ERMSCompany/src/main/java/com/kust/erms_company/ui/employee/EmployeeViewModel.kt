@@ -1,4 +1,4 @@
-package com.kust.erms_company.ui.addEmployee
+package com.kust.erms_company.ui.employee
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,12 +13,12 @@ class EmployeeViewModel @Inject constructor(
     private val employeeRepository: EmployeeRepository
 ) : ViewModel() {
 
-    private val _addEmployee = MutableLiveData<UiState<String>>()
-    val addEmployee : MutableLiveData<UiState<String>>
+    private val _addEmployee = MutableLiveData<UiState<Pair<EmployeeModel,String>>>()
+    val addEmployee : MutableLiveData<UiState<Pair<EmployeeModel, String>>>
         get() = _addEmployee
 
-    private val _updateEmployee = MutableLiveData<UiState<String>>()
-    val updateEmployee : MutableLiveData<UiState<String>>
+    private val _updateEmployee = MutableLiveData<UiState<Pair<EmployeeModel, String>>>()
+    val updateEmployee : MutableLiveData<UiState<Pair<EmployeeModel, String>>>
         get() = _updateEmployee
 
     private val _deleteEmployee = MutableLiveData<UiState<String>>()

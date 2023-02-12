@@ -1,4 +1,4 @@
-package com.kust.erms_company.ui.addEmployee
+package com.kust.erms_company.ui.employee
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,13 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.kust.erms_company.R
 import com.kust.erms_company.data.model.EmployeeModel
 import com.kust.erms_company.databinding.FragmentAddEmployeeBinding
 import com.kust.erms_company.util.UiState
 import com.kust.erms_company.util.toast
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 
 @AndroidEntryPoint
 class AddEmployeeFragment : Fragment() {
@@ -59,7 +59,7 @@ class AddEmployeeFragment : Fragment() {
                 is UiState.Success -> {
                     binding.progressBar.visibility = View.GONE
                     binding.btnRegister.text = getString(R.string.register)
-                    toast(it.data)
+                    findNavController().navigate(R.id.action_addEmployeeFragment_to_featuresFragment)
                 }
                 is UiState.Error -> {
                     binding.progressBar.visibility = View.GONE
@@ -73,21 +73,22 @@ class AddEmployeeFragment : Fragment() {
     private fun getObject() : EmployeeModel {
         return EmployeeModel(
             id = "",
-            binding.etName.text.toString(),
-            binding.etEmail.text.toString(),
-            binding.etPhone.text.toString(),
-            binding.etAddress.text.toString(),
+            name = binding.etName.text.toString(),
+            email = binding.etEmail.text.toString(),
+            phone = binding.etPhone.text.toString(),
+            address = binding.etAddress.text.toString(),
             city = "Bannu",
             country = "Pakistan",
             companyName = "KUST",
             companyId = "",
-            binding.etDesignation.text.toString(),
-            binding.etBasicPay.text.toString(),
-            points = "5"
+            designation = binding.etDesignation.text.toString(),
+            salary = binding.etBasicPay.text.toString(),
+            points = "5",
+            isManager = false
         )
     }
 
-    fun validation() : Boolean {
+    private fun validation() : Boolean {
         if (binding.etName.text.toString().isEmpty()) {
             binding.etName.error = "Name is required"
             return false

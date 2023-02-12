@@ -10,21 +10,21 @@ class EmployeeRepositoryImpl(
     private val auth: FirebaseAuth,
     private val database: FirebaseFirestore
 ) : EmployeeRepository {
-    override fun addEmployee(employeeModel: EmployeeModel, result: (UiState<String>) -> Unit) {
+    override fun addEmployee(employeeModel: EmployeeModel, result: (UiState<Pair<EmployeeModel, String>>) -> Unit) {
         val document = database.collection(FireStoreCollection.EMPLOYEE).document()
         employeeModel.id = document.id
         employeeModel.companyId = auth.currentUser?.uid.toString()
         document.set(employeeModel).addOnSuccessListener {
-            result(UiState.Success("Employee added successfully"))
+            result.invoke(UiState.Success(Pair(employeeModel,"Employee added successfully")))
         }.addOnFailureListener {
             result(UiState.Error(it.message.toString()))
         }
     }
 
-    override fun updateEmployee(employeeModel: EmployeeModel, result: (UiState<String>) -> Unit) {
+    override fun updateEmployee(employeeModel: EmployeeModel, result: (UiState<Pair<EmployeeModel, String>>) -> Unit) {
         val document = database.collection(FireStoreCollection.EMPLOYEE).document(employeeModel.id)
         document.set(employeeModel).addOnSuccessListener {
-            result(UiState.Success("Employee updated successfully"))
+            result.invoke(UiState.Success(Pair(employeeModel,"Employee updated successfully")))
         }.addOnFailureListener {
             result(UiState.Error(it.message.toString()))
         }
@@ -33,7 +33,7 @@ class EmployeeRepositoryImpl(
     override fun deleteEmployee(employeeModel: EmployeeModel, result: (UiState<String>) -> Unit) {
         val document = database.collection(FireStoreCollection.EMPLOYEE).document(employeeModel.id)
         document.delete().addOnSuccessListener {
-            result(UiState.Success("Employee deleted successfully"))
+            result.invoke(UiState.Success("Employee deleted successfully"))
         }.addOnFailureListener {
             result(UiState.Error(it.message.toString()))
         }
@@ -46,7 +46,7 @@ class EmployeeRepositoryImpl(
                 val employee = document.toObject(EmployeeModel::class.java)
                 employee?.let { it1 -> list.add(it1) }
             }
-            result(UiState.Success(list))
+            result.invoke(UiState.Success(list))
         }.addOnFailureListener {
             result(UiState.Error(it.message.toString()))
         }

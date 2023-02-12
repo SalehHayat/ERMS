@@ -60,7 +60,7 @@ class FeaturesFragment : Fragment() {
                         findNavController().navigate(R.id.action_featuresFragment_to_addEmployeeFragment)
                     }
                     1 -> {
-
+                        findNavController().navigate(R.id.action_featuresFragment_to_manageEmployeeFragment)
                     }
                     2 -> {
 
