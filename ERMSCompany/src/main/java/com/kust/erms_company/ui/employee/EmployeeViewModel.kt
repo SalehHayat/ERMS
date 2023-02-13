@@ -1,11 +1,10 @@
 package com.kust.erms_company.ui.employee
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kust.erms_company.data.model.EmployeeModel
 import com.kust.erms_company.data.repositroy.EmployeeRepository
-import com.kust.erms_company.util.UiState
+import com.kust.erms_company.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

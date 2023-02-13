@@ -14,9 +14,8 @@ import com.kust.erms_company.R
 import com.kust.erms_company.data.model.CompanyModel
 import com.kust.erms_company.databinding.FragmentCompanyRegistrationBinding
 import com.kust.erms_company.ui.dashboard.DashBoardActivity
-import com.kust.erms_company.util.FirebaseStorageConstants
-import com.kust.erms_company.util.UiState
-import com.kust.erms_company.util.toast
+import com.kust.erms_company.utils.UiState
+import com.kust.erms_company.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

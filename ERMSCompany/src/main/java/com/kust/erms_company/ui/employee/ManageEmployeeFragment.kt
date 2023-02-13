@@ -2,7 +2,6 @@ package com.kust.erms_company.ui.employee
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kust.erms_company.data.model.EmployeeModel
 import com.kust.erms_company.databinding.FragmentManageEmployeeBinding
-import com.kust.erms_company.util.UiState
-import com.kust.erms_company.util.toast
+import com.kust.erms_company.utils.UiState
+import com.kust.erms_company.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @Suppress("DEPRECATION")

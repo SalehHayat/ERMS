@@ -3,8 +3,8 @@ package com.kust.erms_company.data.repositroy
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kust.erms_company.data.model.EmployeeModel
-import com.kust.erms_company.util.FireStoreCollection
-import com.kust.erms_company.util.UiState
+import com.kust.erms_company.utils.FireStoreCollection
+import com.kust.erms_company.utils.UiState
 
 class EmployeeRepositoryImpl(
     private val auth: FirebaseAuth,

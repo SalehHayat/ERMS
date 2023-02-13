@@ -47,7 +47,7 @@ class EmployeeListingAdapter() : RecyclerView.Adapter<EmployeeListingAdapter.Vie
             binding.tvEmployeeName.text = employee.name
             binding.tvDepartment.text = employee.designation
 
-            if (employee.isManager) {
+            if (employee.status == "manager") {
                 binding.tvStatus.text = "Manager"
             } else {
                 binding.tvStatus.text = "Employee"

@@ -1,7 +1,7 @@
 package com.kust.erms_company.data.repositroy
 
 import com.kust.erms_company.data.model.EmployeeModel
-import com.kust.erms_company.util.UiState
+import com.kust.erms_company.utils.UiState
 
 interface EmployeeRepository {
     fun addEmployee(employeeModel: EmployeeModel, result: (UiState<Pair<EmployeeModel, String>>) -> Unit)

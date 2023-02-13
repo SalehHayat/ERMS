@@ -1,7 +1,7 @@
 package com.kust.erms_company.data.repositroy
 
 import com.kust.erms_company.data.model.CompanyModel
-import com.kust.erms_company.util.UiState
+import com.kust.erms_company.utils.UiState
 
 interface AuthRepository {
     fun registerCompany(email : String, password : String, companyModel: CompanyModel, result : (UiState<String>) -> Unit)
