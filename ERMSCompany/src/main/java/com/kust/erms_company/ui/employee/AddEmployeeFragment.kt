@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.kust.erms_company.R
 import com.kust.erms_company.data.model.EmployeeModel
 import com.kust.erms_company.databinding.FragmentAddEmployeeBinding
-import com.kust.erms_company.util.UiState
-import com.kust.erms_company.util.toast
+import com.kust.erms_company.utils.UiState
+import com.kust.erms_company.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -84,7 +84,7 @@ class AddEmployeeFragment : Fragment() {
             designation = binding.etDesignation.text.toString(),
             salary = binding.etBasicPay.text.toString(),
             points = "5",
-            isManager = false
+            status = "employee",
         )
     }
 

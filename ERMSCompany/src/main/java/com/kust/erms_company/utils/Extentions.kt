@@ -1,4 +1,4 @@
-package com.kust.erms_company.util
+package com.kust.erms_company.utils
 
 import android.app.Activity
 import android.view.View

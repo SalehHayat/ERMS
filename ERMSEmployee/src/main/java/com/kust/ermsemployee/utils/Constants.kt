@@ -1,4 +1,4 @@
-package com.kust.erms_company.util
+package com.kust.ermsemployee.utils
 
 object FireStoreCollection {
     const val COMPANY = "company"

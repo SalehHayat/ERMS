@@ -1,4 +1,4 @@
-package com.kust.erms_company.util
+package com.kust.erms_company.utils
 
 sealed class UiState<out T> {
     object Loading: UiState<Nothing>()

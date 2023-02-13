@@ -1,4 +1,4 @@
-package com.kust.erms_company.data.model
+package com.kust.ermsemployee.data.model
 
 data class EmployeeModel(
     var id: String = "",
@@ -13,6 +13,6 @@ data class EmployeeModel(
     val designation: String = "",
     val salary: String = "",
     val points: String = "",
-    val status : String = "employee",
+    val isManager : Boolean = false,
     val image: Int = 0
 )
