@@ -111,31 +111,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/country"
-            app:counterEnabled="true"
-            app:counterMaxLength="15"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-            app:startIconDrawable="@drawable/ic_location">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_country"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:maxLength="15"
-                android:fontFamily="@font/titillium_web"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -145,18 +120,16 @@
             app:counterMaxLength="20"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
             app:startIconDrawable="@drawable/ic_city">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/titillium_web"
                 android:inputType="text"
                 android:maxLength="20"
-                android:fontFamily="@font/titillium_web"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -179,34 +152,9 @@
                 android:id="@+id/edit_text_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/titillium_web"
                 android:inputType="phone"
                 android:maxLength="11"
-                android:fontFamily="@font/titillium_web"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/address"
-            app:counterEnabled="true"
-            app:counterMaxLength="50"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout6"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
-            app:startIconDrawable="@drawable/ic_address">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:maxLength="50"
-                android:fontFamily="@font/titillium_web"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -214,20 +162,21 @@
             android:id="@+id/btn_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                android:fontFamily="@font/titillium_web_bold"
                 android:text="@string/register"
                 android:textAllCaps="true"
                 android:textSize="20sp"
-                android:fontFamily="@font/titillium_web_bold"
                 app:cornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.kust.erms_company.R
+import dagger.hilt.android.AndroidEntryPoint
+
 
 class ProfileFragment : Fragment() {
 
@@ -26,7 +28,6 @@ class ProfileFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
-        // TODO: Use the ViewModel
     }
 
 }

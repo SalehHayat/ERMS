@@ -10,16 +10,20 @@ class EmployeeRepositoryImpl(
     private val auth: FirebaseAuth,
     private val database: FirebaseFirestore
 ) : EmployeeRepository {
-
-    override fun addEmployee(
+    override fun registerEmployee(
+        email: String,
+        password: String,
         employeeModel: EmployeeModel,
-        result: (UiState<Pair<EmployeeModel, String>>) -> Unit
+        result: (UiState<String>) -> Unit
     ) {
-        val document = database.collection(FireStoreCollection.EMPLOYEE).document()
-        employeeModel.id = document.id
-        employeeModel.companyId = auth.currentUser?.uid.toString()
-        document.set(employeeModel).addOnSuccessListener {
-            result.invoke(UiState.Success(Pair(employeeModel, "Employee added successfully")))
+        auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+            val document = database.collection(FireStoreCollection.EMPLOYEE).document()
+            employeeModel.id = document.id
+            document.set(employeeModel).addOnSuccessListener {
+                result.invoke(UiState.Success("Employee registered successfully"))
+            }.addOnFailureListener {
+                result(UiState.Error(it.message.toString()))
+            }
         }.addOnFailureListener {
             result(UiState.Error(it.message.toString()))
         }

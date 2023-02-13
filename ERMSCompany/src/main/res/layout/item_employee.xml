@@ -21,8 +21,9 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_employee"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="120dp"
+            app:civ_border_width="1dp"
+            android:layout_height="120dp"
             android:src="@drawable/avatar6" />
 
         <LinearLayout

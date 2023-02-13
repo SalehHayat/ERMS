@@ -4,6 +4,7 @@ import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kust.erms_company.data.model.CompanyModel
 import com.kust.erms_company.utils.FireStoreCollection
+import com.kust.erms_company.utils.Role
 import com.kust.erms_company.utils.UiState
 
 class AuthRepositoryImpl(
@@ -21,6 +22,7 @@ class AuthRepositoryImpl(
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     companyModel.id = task.result.user?.uid ?: ""
+                    companyModel.role = Role.COMPANY
                     updateCompanyInformation(companyModel) { uiState ->
                         when (uiState) {
                             is UiState.Success -> result(UiState.Success(uiState.data))
