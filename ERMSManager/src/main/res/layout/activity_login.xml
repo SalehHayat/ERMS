@@ -6,12 +6,4 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity" >
 
-    <TextView
-        android:id="@+id/tv_joining_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/titillium_web_bold"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

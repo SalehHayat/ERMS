@@ -7,7 +7,9 @@
     android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="5dp"
+    android:elevation="10dp"
+    app:strokeWidth="0dp"
+    android:layout_margin="10dp"
     app:cardCornerRadius="5dp"
     tools:ignore="MissingDefaultResource">
 
@@ -18,7 +20,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button2"
+            android:id="@+id/btn_feature"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="40dp"
@@ -30,16 +32,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/btn_img"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/avatar4"
             app:civ_border_color="@color/md_theme_light_primary"
             app:civ_border_width="1dp"
-            app:layout_constraintBottom_toBottomOf="@+id/button2"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintStart_toStartOf="@+id/button2"
-            app:layout_constraintTop_toTopOf="@+id/button2" />
+            app:layout_constraintBottom_toBottomOf="@+id/btn_feature"
+            app:layout_constraintEnd_toStartOf="@+id/btn_feature"
+            app:layout_constraintStart_toStartOf="@+id/btn_feature"
+            app:layout_constraintTop_toTopOf="@+id/btn_feature" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
