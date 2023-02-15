@@ -14,6 +14,7 @@ import com.kust.erms_company.R
 import com.kust.erms_company.data.model.CompanyModel
 import com.kust.erms_company.databinding.FragmentCompanyRegistrationBinding
 import com.kust.erms_company.ui.dashboard.DashBoardActivity
+import com.kust.erms_company.utils.Role
 import com.kust.erms_company.utils.UiState
 import com.kust.erms_company.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
@@ -94,13 +95,14 @@ class CompanyRegistrationFragment : Fragment() {
         return CompanyModel(
             id = "",
             name = binding.editTextCompanyName.text.toString(),
-            address = binding.editTextAddress.text.toString(),
-            city = binding.editTextCity.text.toString(),
-            country = binding.editTextCountry.text.toString(),
+            address = "-",
+            city = "-",
+            country = "",
             email = binding.editTextEmail.text.toString(),
             phone = binding.editTextPhone.text.toString(),
-            website = "www.erms.com",
-            logo = uploadedImageUri.toString()
+            website = "-",
+            role = Role.COMPANY,
+            profilePicture = ""
         )
     }
 

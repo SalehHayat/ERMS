@@ -9,5 +9,6 @@ data class CompanyModel(
     val email: String = "",
     val phone: String = "",
     val website: String = "",
-    var logo: String = ""
+    var role : String = "",
+    val profilePicture : String = ""
 )

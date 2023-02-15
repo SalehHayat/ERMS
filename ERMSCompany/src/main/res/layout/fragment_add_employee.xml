@@ -33,17 +33,6 @@
             app:layout_constraintStart_toStartOf="@+id/tv_heading"
             app:layout_constraintTop_toBottomOf="@+id/tv_heading" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/employee_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/avatar6"
-            app:civ_border_width="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout2"
             style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
@@ -57,7 +46,7 @@
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/employee_image"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
             app:startIconDrawable="@drawable/ic_name">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -193,7 +182,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Gender"
+            android:hint="@string/department"
             app:counterEnabled="true"
             app:counterMaxLength="5"
             app:endIconMode="clear_text"
@@ -204,7 +193,7 @@
             app:startIconDrawable="@drawable/ic_gender">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_gender"
+                android:id="@+id/et_department"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/titillium_web"
@@ -213,61 +202,23 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout14"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_joining_date"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="Address"
-            app:counterEnabled="true"
-            app:counterMaxLength="100"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
+            android:layout_marginTop="24dp"
+            style="@style/h2"
+            android:text="Joining Date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout13"
-            app:startIconDrawable="@drawable/ic_address">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/titillium_web"
-                android:inputType="text"
-                android:maxLength="100"
-                android:maxLines="3" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout15"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="Martial Status"
-            app:counterEnabled="true"
-            app:counterMaxLength="8"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout14"
-            app:startIconDrawable="@drawable/ic_gender">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_martial_status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/titillium_web"
-                android:maxLength="8"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout13" />
 
         <Button
             android:id="@+id/btn_date_picker"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:minHeight="65dp"
             android:text="Joining Date"
             android:textAllCaps="false"
@@ -275,7 +226,7 @@
             app:iconGravity="textStart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout15" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_joining_date" />
 
 
         <RelativeLayout
@@ -284,6 +235,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_date_picker">

@@ -1,18 +1,23 @@
 package com.kust.erms_company.data.model
 
+import com.kust.erms_company.utils.Role
+
 data class EmployeeModel(
     var id: String = "",
     val name: String = "",
+    val employeeId : String = "",
     val email: String = "",
     val phone: String = "",
+    val gender: String = "",
+    val dob: String = "",
     val address: String = "",
     val city: String = "",
     val country: String = "",
-    val companyName: String = "",
+    val department: String = "",
     var companyId: String = "",
     val designation: String = "",
     val salary: String = "",
     val points: String = "",
-    val status : String = "employee",
-    val image: Int = 0
+    val role: String = "",
+    val profilePicture: String = ""
 )

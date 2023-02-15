@@ -3,6 +3,7 @@ package com.kust.erms_company.ui.employee
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.kust.erms_company.data.model.EmployeeModel
 import com.kust.erms_company.databinding.ItemEmployeeBinding
 
@@ -43,11 +44,15 @@ class EmployeeListingAdapter() : RecyclerView.Adapter<EmployeeListingAdapter.Vie
     inner class ViewHolder(private val binding: ItemEmployeeBinding, listener : OnItemClickListener) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(employee: EmployeeModel, position: Int) {
-            binding.imgEmployee.setImageResource(employee.image)
+
+            Glide.with(binding.root.context)
+                .load(employee.profilePicture)
+                .into(binding.imgEmployee)
+
             binding.tvEmployeeName.text = employee.name
             binding.tvDepartment.text = employee.designation
 
-            if (employee.status == "manager") {
+            if (employee.role == "manager") {
                 binding.tvStatus.text = "Manager"
             } else {
                 binding.tvStatus.text = "Employee"

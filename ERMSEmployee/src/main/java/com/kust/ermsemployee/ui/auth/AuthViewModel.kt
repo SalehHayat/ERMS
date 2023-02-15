@@ -1,4 +1,4 @@
-package com.kust.ermsemployee.ui
+package com.kust.ermsemployee.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

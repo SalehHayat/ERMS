@@ -49,8 +49,10 @@ class AuthRepositoryImpl(
     override fun login(email: String, password: String, result: (UiState<String>) -> Unit) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
+                isEmployeeLoggedIn(result)
                 if (task.isSuccessful) {
-                    isUserLoggedIn()
+
+                    result(UiState.Success("Login successful"))
                 }
                 else {
                     try {
@@ -73,6 +75,7 @@ class AuthRepositoryImpl(
                     result(UiState.Success("Email sent"))
                 }
                 else {
+
                     try {
                         throw task.exception ?: java.lang.Exception("Invalid authentication")
                     } catch (e: FirebaseAuthInvalidUserException) {
@@ -92,9 +95,9 @@ class AuthRepositoryImpl(
     }
 
     override fun isEmployeeLoggedIn(result : (UiState<String>) -> Unit) {
-        val ref = database.collection("employees").document(auth.currentUser?.uid ?: "")
+        val ref = database.collection(FireStoreCollection.EMPLOYEE).document(auth.currentUser?.uid ?: "")
 
-        ref.collection(FireStoreCollection.EMPLOYEE).whereEqualTo("status", "employee").get()
+        ref.collection(FireStoreCollection.EMPLOYEE).whereEqualTo("role", "employee").get()
             .addOnSuccessListener {
                 if (it.documents.isNotEmpty()) {
                     result.invoke(UiState.Success("Employee logged in"))
@@ -122,4 +125,6 @@ class AuthRepositoryImpl(
     override fun isUserLoggedIn(): Boolean {
         return auth.currentUser != null
     }
+
+
 }

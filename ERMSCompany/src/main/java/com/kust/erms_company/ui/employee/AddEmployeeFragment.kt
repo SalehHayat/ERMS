@@ -7,18 +7,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.kust.erms_company.R
 import com.kust.erms_company.data.model.EmployeeModel
 import com.kust.erms_company.databinding.FragmentAddEmployeeBinding
+import com.kust.erms_company.utils.Role
 import com.kust.erms_company.utils.UiState
 import com.kust.erms_company.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class AddEmployeeFragment : Fragment() {
 
     private var _binding : FragmentAddEmployeeBinding? = null
     private val binding get() = _binding!!
+
+    @Inject
+    lateinit var auth : FirebaseAuth
 
     companion object {
         fun newInstance() = AddEmployeeFragment()
@@ -37,20 +43,24 @@ class AddEmployeeFragment : Fragment() {
     @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         viewModel = ViewModelProvider(this)[EmployeeViewModel::class.java]
 
         observer()
 
         binding.btnRegister.setOnClickListener {
-            if (validation()) {
-                viewModel.addEmployee(getObject())
+            if (validation()){
+                val email = binding.etEmail.text.toString()
+                val password = "123456"
+                val employeeModel = getObject()
+                viewModel.registerEmployee(email, password, employeeModel)
             }
         }
 
     }
 
     private fun observer() {
-        viewModel.addEmployee.observe(viewLifecycleOwner) {
+        viewModel.registerEmployee.observe(viewLifecycleOwner) {
             when (it) {
                 is UiState.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
@@ -74,17 +84,21 @@ class AddEmployeeFragment : Fragment() {
         return EmployeeModel(
             id = "",
             name = binding.etName.text.toString(),
+            employeeId = binding.etEmployeeId.text.toString(),
             email = binding.etEmail.text.toString(),
             phone = binding.etPhone.text.toString(),
-            address = binding.etAddress.text.toString(),
-            city = "Bannu",
-            country = "Pakistan",
-            companyName = "KUST",
-            companyId = "",
+            gender = "-",
+            dob = "-",
+            address = "-",
+            city = "-",
+            country = "-",
+            department = binding.etDepartment.text.toString(),
+            companyId = auth.currentUser?.uid.toString(),
             designation = binding.etDesignation.text.toString(),
             salary = binding.etBasicPay.text.toString(),
-            points = "5",
-            status = "employee",
+            points = "0",
+            role = Role.EMPLOYEE,
+            profilePicture = ""
         )
     }
 
@@ -93,44 +107,20 @@ class AddEmployeeFragment : Fragment() {
             binding.etName.error = "Name is required"
             return false
         }
-        if (binding.etEmail.text.toString().isEmpty()) {
+        else if (binding.etEmail.text.toString().isEmpty()) {
             binding.etEmail.error = "Email is required"
             return false
         }
-//        if (binding.etPassword.text.toString().isEmpty()) {
-//            binding.etPassword.error = "Password is required"
-//            return false
-//        }
-//        if (binding.etConfirmPassword.text.toString().isEmpty()) {
-//            binding.etConfirmPassword.error = "Confirm Password is required"
-//            return false
-//        }
-//        if (binding.etPassword.text.toString() != binding.etConfirmPassword.text.toString()) {
-//            binding.etConfirmPassword.error = "Password not match"
-//            return false
-//        }
-        if (binding.etPhone.text.toString().isEmpty()) {
+        else if (binding.etPhone.text.toString().isEmpty()) {
             binding.etPhone.error = "Phone is required"
             return false
         }
-        if (binding.etAddress.text.toString().isEmpty()) {
-            binding.etAddress.error = "Address is required"
-            return false
-        }
-        if (binding.etDesignation.text.toString().isEmpty()) {
+        else if (binding.etDesignation.text.toString().isEmpty()) {
             binding.etDesignation.error = "Position is required"
             return false
         }
-        if (binding.etBasicPay.text.toString().isEmpty()) {
+        else if (binding.etBasicPay.text.toString().isEmpty()) {
             binding.etBasicPay.error = "Salary is required"
-            return false
-        }
-        if (binding.etGender.text.toString().isEmpty()) {
-            binding.etGender.error = "Gender is required"
-            return false
-        }
-        if (binding.etMartialStatus.text.toString().isEmpty()) {
-            binding.etMartialStatus.error = "Martial Status is required"
             return false
         }
 
