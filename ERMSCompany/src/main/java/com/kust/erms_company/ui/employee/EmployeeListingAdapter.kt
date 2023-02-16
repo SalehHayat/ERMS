@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.kust.erms_company.R
 import com.kust.erms_company.data.model.EmployeeModel
 import com.kust.erms_company.databinding.ItemEmployeeBinding
 
-class EmployeeListingAdapter() : RecyclerView.Adapter<EmployeeListingAdapter.ViewHolder>() {
+class EmployeeListingAdapter : RecyclerView.Adapter<EmployeeListingAdapter.ViewHolder>() {
 
     var employees: MutableList<EmployeeModel> = arrayListOf()
 
@@ -47,6 +48,8 @@ class EmployeeListingAdapter() : RecyclerView.Adapter<EmployeeListingAdapter.Vie
 
             Glide.with(binding.root.context)
                 .load(employee.profilePicture)
+                .placeholder(R.drawable.avatar4)
+                .centerCrop()
                 .into(binding.imgEmployee)
 
             binding.tvEmployeeName.text = employee.name

@@ -1,7 +1,8 @@
-package com.kust.ermsmanager
+package com.kust.ermsmanager.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.kust.ermsmanager.R
 
 class LoginActivity : AppCompatActivity() {
 
