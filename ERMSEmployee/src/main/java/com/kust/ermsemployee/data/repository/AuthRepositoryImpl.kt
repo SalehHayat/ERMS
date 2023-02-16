@@ -4,6 +4,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.firestore.FirebaseFirestore
+import com.kust.ermsemployee.data.model.CompanyModel
+import com.kust.ermsemployee.data.model.EmployeeModel
 import com.kust.ermsemployee.utils.FireStoreCollection
 import com.kust.ermsemployee.utils.UiState
 
@@ -49,12 +51,12 @@ class AuthRepositoryImpl(
     override fun login(email: String, password: String, result: (UiState<String>) -> Unit) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
-                isEmployeeLoggedIn(result)
+                val id = auth.currentUser?.uid ?: ""
+                validateUser(id)
                 if (task.isSuccessful) {
 
                     result(UiState.Success("Login successful"))
-                }
-                else {
+                } else {
                     try {
                         throw task.exception ?: java.lang.Exception("Invalid authentication")
                     } catch (e: FirebaseAuthInvalidUserException) {
@@ -68,13 +70,36 @@ class AuthRepositoryImpl(
             }
     }
 
+    override fun validateUser(id : String): Boolean {
+
+        val employeeRef =
+            database.collection(FireStoreCollection.EMPLOYEE).document(id)
+        val companyRef =
+            database.collection(FireStoreCollection.COMPANY).document(id)
+
+        employeeRef.get()
+            .addOnSuccessListener {
+                if (it.getString("role") != "employee") {
+                    return@addOnSuccessListener
+                }
+            }
+
+        companyRef.get()
+            .addOnSuccessListener {
+                if (it.getString("role") != "employee") {
+                    return@addOnSuccessListener
+                }
+            }
+
+        return true
+    }
+
     override fun forgotPassword(email: String, result: (UiState<String>) -> Unit) {
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     result(UiState.Success("Email sent"))
-                }
-                else {
+                } else {
 
                     try {
                         throw task.exception ?: java.lang.Exception("Invalid authentication")
@@ -92,20 +117,6 @@ class AuthRepositoryImpl(
     override fun logout(result: () -> Unit) {
         auth.signOut()
         result()
-    }
-
-    override fun isEmployeeLoggedIn(result : (UiState<String>) -> Unit) {
-        val ref = database.collection(FireStoreCollection.EMPLOYEE).document(auth.currentUser?.uid ?: "")
-
-        ref.collection(FireStoreCollection.EMPLOYEE).whereEqualTo("role", "employee").get()
-            .addOnSuccessListener {
-                if (it.documents.isNotEmpty()) {
-                    result.invoke(UiState.Success("Employee logged in"))
-                }
-                else {
-                    result.invoke(UiState.Error("Employee not logged in"))
-                }
-            }
     }
 
 //    override fun updateCompanyInformation(companyModel: CompanyModel, result: (UiState<String>) -> Unit) {
